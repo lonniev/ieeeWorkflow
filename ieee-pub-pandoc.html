@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="$css$.css">
+    <title>$title$</title>
+  </head>
+  <body>
+    <header class="col-span">
+      <h1 class="title counter-skip">$title$</h1>
+      $if(subtitle)$
+      <h2 class="subtitle counter-skip">$subtitle$</h2>
+      $endif$
+      <div class="authors col-2">
+        $for(author)$
+        <div class="author">
+          $if(author.name)$<div>$author.name$</div>$endif$
+          $if(author.name)$<div>$author.affiliation$</div>$endif$
+          $if(author.affiliation.organization)$<div>$author.affiliation.organization$</div>$endif$
+          $if(author.affiliation.address)$<div>$author.affiliation.address$</div>$endif$
+          $if(author.email)$<div>$author.email$</div>$endif$
+        </div>
+        $endfor$
+      </div>
+    </header>
+
+    <div class="abstract">
+      <p><em>Abstract</em>—<em style="font-weight: normal;">$abstract$</em></p>
+      <p><em>Keywords</em>—<em><span style="font-weight: normal;">$keywords$</span></em>
+      
+    $if(sponsor)$
+    <span class="footnote">$sponsors$</span></p>
+    $endif$
+    </div>
+
+    <!-- paper body should begin with H1 Introduction... -->
+    $body$
+
+    <!-- pandoc-cite appends a References section here -->
+    
+  </body>
+</html>
